@@ -1,0 +1,27 @@
+
+    <!-- Content Header (Page header) -->
+    <section class="content">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">新建药品分类</h3>
+            </div><!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" name="addDrugTypeForm"  ng-submit="addDrugType(addDrugTypeForm.$valid)">
+                <div class="box-body">
+                    <div class="form-group has-feedback" ng-class="{ 'has-error': addDrugTypeForm.drugTypeName.$invalid && addDrugTypeForm.drugTypeName.$dirty, 'has-success': addDrugTypeForm.drugTypeName.$valid && addDrugTypeForm.drugTypeName.$dirty}">
+                        <label ng-if="addDrugTypeForm.drugTypeName.$dirty && addDrugTypeForm.drugTypeName.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>药品分类名长度必须大于或者等于2</label>
+                        <input type="text"
+                               class="form-control"
+                               name="drugTypeName"
+                               ng-model="form.drugTypeName"
+                               placeholder="分类名称"
+                               required>
+                    </div>
+                </div><!-- /.box-body -->
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">添加</button>
+                </div>
+            </form>
+        </div>
+    </section><!-- /.Left col -->

@@ -1,0 +1,148 @@
+<div class="wrapper">
+
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>ZJ</b>QX</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>湛江</b>潜校</span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- /.search form -->
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                <li class="header">主菜单</li>
+
+                <li class="active treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>医疗卡管理</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="active"><a href="#"><i class="fa fa-circle-o"></i>新办医疗卡</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 医疗卡列表</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>医疗卡信息</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>修改页面</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>充值医疗卡</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>租用医疗卡</a></li>
+                    </ul>
+                </li>
+
+                <li class="active treeview">
+                    <a href="#">
+                        <i class="fa fa-files-o"></i>
+                        <span>处方管理</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i>添加处方</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>处方列表</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>处方信息</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="active treeview">
+                    <a href="#">
+                        <i class="fa fa-files-o"></i>
+                        <span> 缴费管理</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o">缴费清单</i></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o">清单列表</i></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o">清单信息＊</i></a></li>
+                    </ul>
+                </li>
+
+                <li class="active treeview">
+                    <a href="#">
+                        <i class="fa fa-files-o"></i>
+                        <span> 治疗管理</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o">治疗项目清单</i></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o">新建治疗项目</i></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o">医疗项目列表</i></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o">设置用药</i></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o">修改医疗项目</i></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o">医疗项目信息</i></a></li>
+
+                    </ul>
+                </li>
+
+
+                <li class="active treeview">
+                    <a href="#">
+                        <i class="fa fa-files-o"></i>
+                        <span>药品管理</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o">新建药品</i></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o">药品列表</i></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o">药品信息</i></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o">修改药品</i></a></li>
+
+                    </ul>
+                </li>
+
+                <li class="active treeview">
+                    <a href="#">
+                        <i class="fa fa-files-o"></i>
+                        <span> 用户管理</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o">新增用户</i></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o">用户列表</i></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o">修改用户信息</i></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o">用户信息查询</i></a></li>
+
+                    </ul>
+                </li>
+
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+
+
+
+    <!-- 主体部分 START -->
+    <div class="content-wrapper">
+        <div ui-view="user" style="height:100%;width:100%;"></div>
+    </div>
+    <!-- 主体部分 END -->
+
+
+
+
+
+
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 1.0.0
+        </div>
+        <strong>Copyright &copy; 2015-2015 湛江潜校 .</strong> All rights reserved.
+    </footer>
+
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+</div><!-- ./wrapper -->

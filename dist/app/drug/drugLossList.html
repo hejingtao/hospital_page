@@ -1,0 +1,55 @@
+<section class="content">
+
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">药品报损列表</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <div class="dataTables_wrapper form-inline dt-bootstrap" id="example2_wrapper"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table aria-describedby="example2_info" role="grid" id="example2" class="table table-bordered table-hover dataTable">
+                <thead>
+                <tr role="row">
+                    <th colspan="1" row  span="1"  tabindex="0" class="sorting">报损id</th>
+                    <th colspan="1" rowspan="1"  tabindex="0" class="sorting">药品名称</th>
+                    <th colspan="1" row  span="1"  tabindex="0" class="sorting">药品id</th>
+                    <th colspan="1" rowspan="1"  tabindex="0" class="sorting">数量</th>
+                    <th colspan="1" rowspan="1"  tabindex="0" class="sorting">备注</th>
+                    <th colspan="1" rowspan="1"  tabindex="0" class="sorting">报损日期</th>
+                    <th colspan="1" rowspan="1"  tabindex="0" class="sorting">操作者</th>
+                </thead>
+                <tbody>
+
+                <tr role="row" ng-repeat="drug in drugList">
+                    <td>{{drug.lossId}}</td>
+                    <td>{{drug.drugName}}</td>
+                    <td>{{drug.drugId}}</td>
+                    <td>{{drug.count}}</td>
+                    <td>{{drug.remark}}</td>
+                    <td>{{drug.createTime | date:"yyyy-MM-dd HH:MM:ss" }}</td>
+                    <td>{{drug.recordUserName}}</td>
+                </tr>
+
+                </tbody>
+            </table></div></div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div id="example2_paginate" class="dataTables_paginate paging_simple_numbers">
+                            <ul class="pagination">
+                                <li id="example2_previous" class="paginate_button previous" ng-class="{ 'disabled' : pageList[0] == null}"><a tabindex="0" data-dt-idx="0" ui-sref="index.drugLossList({pageNum:pageList[0]})">Previous</a></li>
+
+                                <li class="paginate_button " ng-repeat="page in pageList[1]" ><a tabindex="0" data-dt-idx="2"  ui-sref="index.drugLossList({pageNum:page})">{{page+1}}</a></li>
+
+                                <li class="paginate_button active"><a tabindex="0" data-dt-idx="1">{{pageList[2]+1}}</a></li>
+
+                                <li class="paginate_button " ng-repeat="page in pageList[3]""><a tabindex="0" data-dt-idx="2"  ui-sref="index.drugLossList({pageNum:page})">{{page+1}}</a></li>
+
+                                <li id="example2_next" class="paginate_button next"  ng-class="{ 'disabled' : pageList[4] == null }"><a tabindex="0" data-dt-idx="7" ui-sref="index.drugLossList({pageNum:pageList[4]})">Next</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- /.box-body -->
+    </div>
+</section><!-- /.Left col -->

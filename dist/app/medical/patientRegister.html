@@ -1,0 +1,73 @@
+
+<!-- Content Header (Page header) -->
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">患者挂号</h3>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        <form name="patientRegisterForm" ng-submit="patientRegister(patientRegisterForm.$valid)" novalidate>
+            <div class="box-body">
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': patientRegisterForm.patientId.$invalid && patientRegisterForm.patientId.$dirty, 'has-success': patientRegisterForm.patientId.$valid && patientRegisterForm.patientId.$dirty}">
+                    <label>患者id</label>
+                    <label ng-if="patientRegisterForm.patientId.$dirty && patientRegisterForm.patientId.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="patientId"
+                           ng-model="form.patientId"
+                           ng-pattern="/^[1-9]\d*$/"
+                           placeholder="患者id"
+                           required
+                    >
+                </div>
+
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': patientRegisterForm.type.$invalid && patientRegisterForm.type.$dirty, 'has-success': patientRegisterForm.type.$valid && patientRegisterForm.type.$dirty}">
+                    <label>分类</label>
+                    <label ng-if="patientRegisterForm.type.$dirty && patientRegisterForm.type.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+
+                    <select class="form-control" name="type" ng-model="form.type" required>
+                        <option value="1">普通挂号</option>
+                        <option value="2">职工挂号</option>
+                        <option value="3">运动员挂号</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': patientRegisterForm.userId.$invalid && patientRegisterForm.userId.$dirty, 'has-success': patientRegisterForm.userId.$valid && patientRegisterForm.userId.$dirty}">
+                    <label>医生id</label>
+                    <label ng-if="patientRegisterForm.userId.$dirty && patientRegisterForm.userId.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="userId"
+                           ng-model="form.userId"
+                           ng-pattern="/^[1-9]\d*$/"
+                           placeholder="医生id"
+                           required
+                    >
+                </div>
+
+
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': patientRegisterForm.payment.$invalid && patientRegisterForm.payment.$dirty, 'has-success': patientRegisterForm.payment.$valid && patientRegisterForm.payment.$dirty}">
+                    <label>挂号费</label>
+                    <label ng-if="patientRegisterForm.payment.$dirty && patientRegisterForm.payment.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="payment"
+                           ng-model="form.payment"
+                           ng-pattern="/^[1-9]\d*$/"
+                           placeholder="挂号费"
+                           required
+                    >
+                </div>
+
+            </div><!-- /.box-body -->
+
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">挂号</button>
+            </div>
+        </form>
+    </div>
+</section><!-- /.Left col -->

@@ -1,0 +1,56 @@
+<section class="content">
+
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">挂号列表</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <div class="dataTables_wrapper form-inline dt-bootstrap" id="example2_wrapper"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table aria-describedby="example2_info" role="grid" id="example2" class="table table-bordered table-hover dataTable">
+                <thead>
+                <tr role="row">
+
+                    <th colspan="1" rowspan="1"  tabindex="0" class="sorting">患者卡号</th>
+                    <th colspan="1" rowspan="1"  tabindex="0" class="sorting">患者名</th>
+                    <th colspan="1" rowspan="1"  tabindex="0" class="sorting">类型</th>
+                    <th colspan="1" rowspan="1"  tabindex="0" class="sorting">挂号号</th>
+                    <th colspan="1" rowspan="1"  tabindex="0" class="sorting">时间</th>
+                    <th colspan="1" rowspan="1"  tabindex="0" class="sorting">医生名</th>
+                    <th colspan="1" rowspan="1"  tabindex="0" class="sorting">状态</th>
+                </thead>
+                <tbody>
+
+                <tr role="row" ng-repeat="register in registerList">
+                    <td>{{register.patientCardId}}</td>
+                    <td>{{register.patientName}}</td>
+                    <td>{{typeList[register.type]}}</td>
+                    <td>{{register.no}}</td>
+                    <td>{{register.date |  date:"yyyy-MM-dd HH:MM:ss" }}</td>
+                    <td>{{register.doctorName}}</td>
+                    <td>{{register.isUse == 0? '未就诊': '已就诊'}}</td>
+                </tr>
+
+                </tbody>
+            </table></div></div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div id="example2_paginate" class="dataTables_paginate paging_simple_numbers">
+                            <ul class="pagination">
+                                <li id="example2_previous" class="paginate_button previous" ng-class="{ 'disabled' : pageList[0] == null}"><a tabindex="0" data-dt-idx="0" ui-sref="index.patientList({pageNum:pageList[0]})">Previous</a></li>
+
+                                <li class="paginate_button " ng-repeat="page in pageList[1]"><a tabindex="0" data-dt-idx="2"  ui-sref="index.patientList({pageNum:page})">{{page+1}}</a></li>
+
+                                <li class="paginate_button active"><a tabindex="0" data-dt-idx="1">{{pageList[2]+1}}</a></li>
+
+                                <li class="paginate_button " ng-repeat="page in pageList[3]"><a tabindex="0" data-dt-idx="2"  ui-sref="index.patientList({pageNum:page})">{{page+1}}</a></li>
+
+                                <li id="example2_next" class="paginate_button next"  ng-class="{ 'disabled' : pageList[4] == null }"><a tabindex="0" data-dt-idx="7" ui-sref="index.patientList({pageNum:pageList[4]})">Next</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- /.box-body -->
+    </div>
+</section><!-- /.Left col -->

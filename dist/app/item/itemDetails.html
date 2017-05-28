@@ -1,0 +1,104 @@
+
+<!-- Content Header (Page header) -->
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">治疗项目详情</h3>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        <form name="itemDetailsForm" ng-submit="changeItemDetails(itemDetailsForm.$valid)" novalidate>
+            <div class="box-body">
+
+                <div class="form-group">
+                    <label>是否修改分类</label>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="isChangeLevel"  ng-model="form.isChangeLevel" value="1">
+                            是
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="isChangeLevel"  ng-model="form.isChangeLevel" value="0">
+                            否
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="form-group" ng-if="form.isChangeLevel == 1">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="level"  ng-click="getLevel(1)" ng-model="form.level" value="1">
+                            一级
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="level"  ng-click="getLevel(1)" ng-model="form.level" value="2">
+                            二级
+                        </label>
+                    </div>
+                </div>
+
+                <div ng-if="form.level == 2" class="form-group has-feedback" ng-class="{ 'has-error': addItemForm.firstLevelItemId.$invalid && addItemForm.firstLevelItemId.$dirty, 'has-success': addItemForm.firstLevelItemId.$valid && addItemForm.firstLevelItemId.$dirty}">
+                    <label>一级分类</label>
+                    <label ng-if="addItemForm.firstLevelItemId.$dirty && addItemForm.firstLevelItemId.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+
+                    <select class="form-control" name="firstLevelItemId" ng-change="getLevel(2,form.firstLevelItemId)" ng-model="form.firstLevelItemId" required>
+                        <option ng-repeat="firstLevelItem in firstLevelItemList"  name="firstLevelItemId"  value="{{firstLevelItem.itemId}}">{{firstLevelItem.name}}</option>
+                    </select>
+                </div>
+                
+
+                <div class="form-group has-feedback">
+                    <label>上级治疗项目id</label>
+                    <input type="text"
+                           class="form-control"
+                           ng-model="itemDetails.parentId"
+                           disabled
+                    >
+                </div>
+
+                <div class="form-group has-feedback">
+                    <label>上级治疗项目名称</label>
+                    <input type="text"
+                           class="form-control"
+                           ng-model="itemDetails.parentName"
+                           disabled
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': itemDetailsForm.name.$invalid && itemDetailsForm.name.$dirty, 'has-success': itemDetailsForm.name.$valid && itemDetailsForm.name.$dirty}">
+                    <label>名称</label>
+                    <label ng-if="itemDetailsForm.name.$dirty && itemDetailsForm.name.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="name"
+                           ng-model="form.name"
+                           placeholder="名称"
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': addItemForm.price.$invalid && addItemForm.price.$dirty, 'has-success': addItemForm.price.$valid && addItemForm.price.$dirty}">
+                    <label>价格</label>
+                    <label ng-if="addItemForm.price.$dirty && addItemForm.price.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>格式不符合要求</label>
+                    <input type="text"
+                           class="form-control"
+                           name="price"
+                           ng-model="form.price"
+                           ng-pattern="/^[1-9]\d*$/"
+                           placeholder="价格"
+                           required
+                    >
+                </div>
+
+            </div><!-- /.box-body -->
+
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">修改</button>
+            </div>
+        </form>
+    </div>
+</section><!-- /.Left col -->

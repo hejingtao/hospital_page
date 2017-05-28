@@ -1,0 +1,200 @@
+
+<!-- Content Header (Page header) -->
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">药品详情</h3>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        <form name="changeDrugForm" ng-submit="changeDrug(changeDrugForm.$valid)" novalidate>
+            <div class="box-body">
+                <div class="form-group has-feedback">
+                    <label>药品id</label>
+                    <input type="text"
+                           class="form-control"
+                           ng-model="form.drugId"
+                           disabled
+                    >
+                </div>
+                
+                <div class="form-group has-feedback">
+                    <label>编码</label>
+                    <input type="text"
+                           class="form-control"
+                           value="{{drugDetails.no}}"
+                           disabled
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': changeDrugForm.name.$invalid && changeDrugForm.name.$dirty, 'has-success': changeDrugForm.name.$valid && changeDrugForm.name.$dirty}">
+                    <label>药品名称</label>
+                    <label ng-if="changeDrugForm.name.$dirty && changeDrugForm.name.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="name"
+                           ng-model="form.name"
+                           placeholder="药品名称"
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': changeDrugForm.price.$invalid && changeDrugForm.price.$dirty, 'has-success': changeDrugForm.price.$valid && changeDrugForm.price.$dirty}">
+                    <label>售价</label>
+                    <label ng-if="changeDrugForm.price.$dirty && changeDrugForm.price.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>格式不正确</label>
+                    <input type="text"
+                           class="form-control"
+                           name="price"
+                           ng-model="form.price"
+                           ng-pattern="/^[0-9]+(.[0-9]{1,2})?$/"
+                           placeholder="售价（元）"
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': changeDrugForm.count.$invalid && changeDrugForm.count.$dirty, 'has-success': changeDrugForm.count.$valid && changeDrugForm.count.$dirty}">
+                    <label>药品数量</label>
+                    <label ng-if="changeDrugForm.count.$dirty && changeDrugForm.count.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>格式不正确</label>
+                    <input type="text"
+                           class="form-control"
+                           name="count"
+                           ng-model="form.count"
+                           ng-pattern="/^[1-9]\d*$/"
+                           placeholder="药品数量"
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': changeDrugForm.parentId.$invalid && changeDrugForm.parentId.$dirty, 'has-success': changeDrugForm.parentId.$valid && changeDrugForm.parentId.$dirty}">
+                    <label>分类</label>
+                    <label ng-if="changeDrugForm.parentId.$dirty && changeDrugForm.parentId.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+
+                    <select class="form-control" name="parentId" ng-model="form.parentId" required>
+                        <option ng-repeat="drugType in drugTypeList" value="{{drugType.drugId}}" ng-selected="drugType.drugId == drugDetails.parentId">{{drugType.name}}</option>
+                    </select>
+                </div>
+
+
+
+                <div class="form-group has-feedback">
+                    <label>成本</label>
+                    <input type="text"
+                           class="form-control"
+                           value="{{drugDetails.cost}}"
+                           disabled
+                    >
+                </div>
+
+                <div class="form-group has-feedback">
+                    <label>批码</label>
+                    <input type="text"
+                           class="form-control"
+                           value="{{drugDetails.batch}}"
+                           disabled
+                    >
+                </div>
+
+
+                <div class="form-group has-feedback">
+                    <label>生产日期</label>
+                    <input type="text"
+                           class="form-control"
+                           value="{{drugDetails.validDate | date:'yyyy-MM-dd'}}"
+                           disabled
+                    >
+                </div>
+
+                <div class="form-group has-feedback">
+                    <label>过期时间</label>
+                    <input type="text"
+                           class="form-control"
+                           value="{{drugDetails.expDate  | date:'yyyy-MM-dd'}}"
+                           disabled
+                    >
+                </div>
+
+
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': changeDrugForm.mnemonic.$invalid && changeDrugForm.mnemonic.$dirty, 'has-success': changeDrugForm.mnemonic.$valid && changeDrugForm.mnemonic.$dirty}">
+                    <label>助记码</label>
+                    <label ng-if="changeDrugForm.mnemonic.$dirty && changeDrugForm.mnemonic.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="mnemonic"
+                           ng-model="form.mnemonic"
+                           placeholder="助记码"
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': changeDrugForm.type.$invalid && changeDrugForm.type.$dirty, 'has-success': changeDrugForm.type.$valid && changeDrugForm.type.$dirty}">
+                    <label>单位</label>
+                    <label ng-if="changeDrugForm.type.$dirty && changeDrugForm.type.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="type"
+                           ng-model="form.type"
+                           placeholder="单位"
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': changeDrugForm.standard.$invalid && changeDrugForm.standard.$dirty, 'has-success': changeDrugForm.standard.$valid && changeDrugForm.standard.$dirty}">
+                    <label>规格</label>
+                    <label ng-if="changeDrugForm.standard.$dirty && changeDrugForm.standard.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="standard"
+                           ng-model="form.standard"
+                           placeholder="规格"
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': changeDrugForm.producter.$invalid && changeDrugForm.producter.$dirty, 'has-success': changeDrugForm.producter.$valid && changeDrugForm.producter.$dirty}">
+                    <label>厂商</label>
+                    <label ng-if="changeDrugForm.producter.$dirty && changeDrugForm.producter.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="producter"
+                           ng-model="form.producter"
+                           placeholder="厂商"
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': changeDrugForm.approval.$invalid && changeDrugForm.approval.$dirty, 'has-success': changeDrugForm.approval.$valid && changeDrugForm.approval.$dirty}">
+                    <label>批准文号</label>
+                    <label ng-if="changeDrugForm.approval.$dirty && changeDrugForm.approval.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="approval"
+                           ng-model="form.approval"
+                           placeholder="批准文号"
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': changeDrugForm.barCode.$invalid && changeDrugForm.barCode.$dirty, 'has-success': changeDrugForm.barCode.$valid && changeDrugForm.barCode.$dirty}">
+                    <label>条形码</label>
+                    <label ng-if="changeDrugForm.barCode.$dirty && changeDrugForm.barCode.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="barCode"
+                           ng-model="form.barCode"
+                           placeholder="条形码"
+                           required
+                    >
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-8">
+                    </div>
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">修改</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section><!-- /.Left col -->

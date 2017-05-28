@@ -1,0 +1,205 @@
+<div class="wrapper">
+
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>ZJ</b>QX</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>湛江</b>潜校</span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- /.search form -->
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                <li class="header">主菜单</li>
+
+                <li class="treeview">
+                    <a>
+                        <i class="fa fa-files-o"></i>
+                        <span>药品管理</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-circle-o"></i>药品分类<i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a ui-sref="index.addDrugType"><i class="fa fa-circle-o"></i>添加分类</a></li>
+                                <li><a ui-sref="index.drugTypeList"><i class="fa fa-circle-o"></i>分类列表</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-circle-o"></i>药品入库<i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a ui-sref="index.addDrug"><i class="fa fa-circle-o"></i>入库</a></li>
+                                <li><a ui-sref="index.drugStockHistory"><i class="fa fa-circle-o"></i>历史记录</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-circle-o"></i>药品自用<i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a ui-sref="index.consumeDrug"><i class="fa fa-circle-o"></i>登记</a></li>
+                                <li><a ui-sref="index.consumeDrugList"><i class="fa fa-circle-o"></i>历史记录</a></li>
+                            </ul>
+                        </li>
+                        <li><a ui-sref="index.createDrug"><i class="fa fa-circle-o">新建药品</i></a></li>
+                        <li><a ui-sref="index.drugList"><i class="fa fa-circle-o">药品列表</i></a></li>
+                        <li>
+                            <a href="#"><i class="fa fa-circle-o"></i>药品报损<i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a ui-sref="index.drugLoss"><i class="fa fa-circle-o"></i>登记</a></li>
+                                <li><a ui-sref="index.drugLossList"><i class="fa fa-circle-o"></i>历史记录</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-circle-o"></i>药品拆零<i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a ui-sref="index.drugDetach"><i class="fa fa-circle-o"></i>登记</a></li>
+                                <li><a ui-sref="index.drugDetachList"><i class="fa fa-circle-o"></i>历史记录</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a>
+                        <i class="fa fa-files-o"></i>
+                        <span> 用户管理</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a ui-sref="index.addUser"><i class="fa fa-circle-o">添加用户</i></a></li>
+                        <li><a ui-sref="index.userList"><i class="fa fa-circle-o">用户列表</i></a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a>
+                        <i class="fa fa-files-o"></i>
+                        <span> 个人中心</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a ui-sref="index.changeUserPassword"><i class="fa fa-circle-o">修改密码</i></a></li>
+                        <li><a ui-sref="index.changeUserInfo"><i class="fa fa-circle-o">修改信息</i></a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a>
+                        <i class="fa fa-dashboard"></i>
+                        <span>医疗卡管理</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a ui-sref="index.addPatient"><i class="fa fa-circle-o"></i>新办医疗卡</a></li>
+                        <li><a ui-sref="index.patientList"><i class="fa fa-circle-o"></i>医疗卡列表</a></li>
+                        <li><a ui-sref="index.patientRegister"><i class="fa fa-circle-o"></i>挂号</a></li>
+                        <li><a ui-sref="index.patientRegisterList"><i class="fa fa-circle-o"></i>挂号列表</a></li>
+                        <li><a ui-sref="index"><i class="fa fa-circle-o"></i>治疗？</a></li>
+                        <li><a ui-sref="index"><i class="fa fa-circle-o"></i>撤销治疗？</a></li>
+                        <li><a ui-sref="index"><i class="fa fa-circle-o"></i>添加病例？</a></li>
+                        <li><a ui-sref="index"><i class="fa fa-circle-o"></i>添加处方？</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a>
+                        <i class="fa fa-dashboard"></i>
+                        <span>医疗项目管理</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a><i class="fa fa-circle-o"></i>体格诊断<i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a ui-sref="index.addSign"><i class="fa fa-circle-o"></i>添加体格诊断</a></li>
+                                <li><a ui-sref="index.signList"><i class="fa fa-circle-o"></i>体格诊断列表</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a><i class="fa fa-circle-o"></i>诊断<i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a ui-sref="index.addDiagnosis"><i class="fa fa-circle-o"></i>添加诊断</a></li>
+                                <li><a ui-sref="index.diagnosisList"><i class="fa fa-circle-o"></i>诊断列表</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a><i class="fa fa-circle-o"></i>治疗项目<i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a ui-sref="index.addItem"><i class="fa fa-circle-o"></i>添加治疗项目</a></li>
+                                <li><a ui-sref="index.itemList"><i class="fa fa-circle-o"></i>治疗项目列表</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="active treeview">
+                    <a>
+                        <i class="fa fa-files-o"></i>
+                        <span>处方管理</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i>添加处方</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>处方查询</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>处方支付</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>处方退费</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="active treeview">
+                    <a href="#">
+                        <i class="fa fa-files-o"></i>
+                        <span> 缴费管理</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o">缴费清单</i></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o">清单列表</i></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o">清单信息＊</i></a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+
+
+
+    <!-- 主体部分 START -->
+    <div class="content-wrapper">
+        <div ui-view="content" style="height:100%;width:100%;"></div>
+    </div>
+    <!-- 主体部分 END -->
+
+
+
+
+
+
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 1.0.0
+        </div>
+        <strong>Copyright &copy; 2015-2015 湛江潜校 .</strong> All rights reserved.
+    </footer>
+
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+</div><!-- ./wrapper -->

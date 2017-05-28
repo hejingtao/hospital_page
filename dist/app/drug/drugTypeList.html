@@ -1,0 +1,30 @@
+<section class="content">
+
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">药品一级分类列表</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <div class="dataTables_wrapper form-inline dt-bootstrap" id="example2_wrapper"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table aria-describedby="example2_info" role="grid" id="example2" class="table table-bordered table-hover dataTable">
+                <thead>
+                <tr role="row">
+                    <th colspan="1" row  span="1"  tabindex="0" class="sorting">分类id</th>
+                    <th colspan="1" rowspan="1"  tabindex="0" class="sorting">名称</th>
+                    <th colspan="1" rowspan="1"  tabindex="0" class="sorting">操作</th>
+                </thead>
+                <tbody>
+
+                <tr role="row" ng-repeat="drugType in drugTypeList">
+                    <td>{{drugType.drugId}}</td>
+                    <td>{{drugType.name}}</td>
+                    <td><button class="btn btn-primary">查看</button> <button class="btn btn-primary btn-danger">删除</button></td>
+                </tr>
+
+                </tbody>
+            </table></div></div>
+
+
+            </div>
+        </div><!-- /.box-body -->
+    </div>
+</section><!-- /.Left col -->

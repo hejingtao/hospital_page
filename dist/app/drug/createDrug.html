@@ -1,0 +1,198 @@
+
+<!-- Content Header (Page header) -->
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">新建药品</h3>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        <form name="createDrugForm" ng-submit="createDrug(createDrugForm.$valid)" novalidate>
+            <div class="box-body">
+                <div class="form-group has-feedback" ng-class="{ 'has-error': createDrugForm.no.$invalid && createDrugForm.no.$dirty, 'has-success': createDrugForm.no.$valid && createDrugForm.no.$dirty}">
+                    <label>编码</label>
+                    <label ng-if="createDrugForm.no.$dirty && createDrugForm.no.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="no"
+                           ng-model="form.no"
+                           ng-minlength="1"
+                           placeholder="编码"
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': createDrugForm.name.$invalid && createDrugForm.name.$dirty, 'has-success': createDrugForm.name.$valid && createDrugForm.name.$dirty}">
+                    <label>药品名称</label>
+                    <label ng-if="createDrugForm.name.$dirty && createDrugForm.name.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="name"
+                           ng-model="form.name"
+                           placeholder="药品名称"
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': createDrugForm.price.$invalid && createDrugForm.price.$dirty, 'has-success': createDrugForm.price.$valid && createDrugForm.price.$dirty}">
+                    <label>售价</label>
+                    <label ng-if="createDrugForm.price.$dirty && createDrugForm.price.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>格式不正确</label>
+                    <input type="text"
+                           class="form-control"
+                           name="price"
+                           ng-model="form.price"
+                           ng-pattern="/^[0-9]+(.[0-9]{1,2})?$/"
+                           placeholder="售价（元）"
+                           required
+                    >
+                </div>
+
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': createDrugForm.parentId.$invalid && createDrugForm.parentId.$dirty, 'has-success': createDrugForm.parentId.$valid && createDrugForm.parentId.$dirty}">
+                    <label>分类</label>
+                    <label ng-if="createDrugForm.parentId.$dirty && createDrugForm.parentId.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+
+                    <select class="form-control" name="parentId" ng-model="form.parentId" required>
+                        <option ng-repeat="drugType in drugTypeList" value="{{drugType.drugId}}">{{drugType.name}}</option>
+                    </select>
+                </div>
+
+
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': createDrugForm.cost.$invalid && createDrugForm.cost.$dirty, 'has-success': createDrugForm.cost.$valid && createDrugForm.cost.$dirty}">
+                    <label>成本</label>
+                    <label ng-if="createDrugForm.cost.$dirty && createDrugForm.cost.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>格式不正确</label>
+                    <input type="text"
+                           class="form-control"
+                           name="cost"
+                           ng-model="form.cost"
+                           ng-pattern="/^[0-9]+(.[0-9]{1,2})?$/"
+                           placeholder="成本（元）"
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': createDrugForm.batch.$invalid && createDrugForm.batch.$dirty, 'has-success': createDrugForm.batch.$valid && createDrugForm.batch.$dirty}">
+                    <label>批码</label>
+                    <label ng-if="createDrugForm.batch.$dirty && createDrugForm.batch.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="batch"
+                           ng-model="form.batch"
+                           placeholder="批码"
+                           required
+                    >
+                </div>
+
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': createDrugForm.validDate.$invalid && createDrugForm.validDate.$dirty, 'has-success': createDrugForm.validDate.$valid && createDrugForm.validDate.$dirty}">
+                    <label>生产日期</label>
+                    <label ng-if="createDrugForm.validDate.$dirty && createDrugForm.validDate.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>格式不正确</label>
+                    <input type="text"
+                           class="form-control"
+                           name="validDate"
+                           ng-model="form.validDate"
+                           ng-pattern="/(([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8]))))|((([0-9]{2})(0[48]|[2468][048]|[13579][26])|((0[48]|[2468][048]|[3579][26])00))-02-29)/"
+                           placeholder="生产日期 (yyyy-MM-dd) "
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': createDrugForm.expDate.$invalid && createDrugForm.expDate.$dirty, 'has-success': createDrugForm.expDate.$valid && createDrugForm.expDate.$dirty}">
+                    <label>过期时间</label>
+                    <label ng-if="createDrugForm.expDate.$dirty && createDrugForm.expDate.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>格式不正确</label>
+                    <input type="text"
+                           class="form-control"
+                           name="expDate"
+                           ng-model="form.expDate"
+                           ng-pattern="/(([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8]))))|((([0-9]{2})(0[48]|[2468][048]|[13579][26])|((0[48]|[2468][048]|[3579][26])00))-02-29)/"
+                           placeholder="过期时间 (yyyy-MM-dd) "
+                           required
+                    >
+                </div>
+
+
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': createDrugForm.mnemonic.$invalid && createDrugForm.mnemonic.$dirty, 'has-success': createDrugForm.mnemonic.$valid && createDrugForm.mnemonic.$dirty}">
+                    <label>助记码</label>
+                    <label ng-if="createDrugForm.mnemonic.$dirty && createDrugForm.mnemonic.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="mnemonic"
+                           ng-model="form.mnemonic"
+                           placeholder="助记码"
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': createDrugForm.type.$invalid && createDrugForm.type.$dirty, 'has-success': createDrugForm.type.$valid && createDrugForm.type.$dirty}">
+                    <label>单位</label>
+                    <label ng-if="createDrugForm.type.$dirty && createDrugForm.type.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="type"
+                           ng-model="form.type"
+                           placeholder="单位"
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': createDrugForm.standard.$invalid && createDrugForm.standard.$dirty, 'has-success': createDrugForm.standard.$valid && createDrugForm.standard.$dirty}">
+                    <label>规格</label>
+                    <label ng-if="createDrugForm.standard.$dirty && createDrugForm.standard.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="standard"
+                           ng-model="form.standard"
+                           placeholder="规格"
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': createDrugForm.producter.$invalid && createDrugForm.producter.$dirty, 'has-success': createDrugForm.producter.$valid && createDrugForm.producter.$dirty}">
+                    <label>厂商</label>
+                    <label ng-if="createDrugForm.producter.$dirty && createDrugForm.producter.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="producter"
+                           ng-model="form.producter"
+                           placeholder="厂商"
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': createDrugForm.approval.$invalid && createDrugForm.approval.$dirty, 'has-success': createDrugForm.approval.$valid && createDrugForm.approval.$dirty}">
+                    <label>批准文号</label>
+                    <label ng-if="createDrugForm.approval.$dirty && createDrugForm.approval.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="approval"
+                           ng-model="form.approval"
+                           placeholder="批准文号"
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': createDrugForm.barCode.$invalid && createDrugForm.barCode.$dirty, 'has-success': createDrugForm.barCode.$valid && createDrugForm.barCode.$dirty}">
+                    <label>条形码</label>
+                    <label ng-if="createDrugForm.barCode.$dirty && createDrugForm.barCode.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="barCode"
+                           ng-model="form.barCode"
+                           placeholder="条形码"
+                           required
+                    >
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-8">
+                    </div>
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">添加</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section><!-- /.Left col -->

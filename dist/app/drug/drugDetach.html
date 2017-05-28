@@ -1,0 +1,87 @@
+
+<!-- Content Header (Page header) -->
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">药品拆零登记</h3>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        <form name="drugDetachForm" ng-submit="drugDetach(drugDetachForm.$valid)" novalidate>
+            <div class="box-body">
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': drugDetachForm.drugId.$invalid && drugDetachForm.drugId.$dirty, 'has-success': drugDetachForm.drugId.$valid && drugDetachForm.drugId.$dirty}">
+                    <label>拆零药品id</label>
+                    <label ng-if="drugDetachForm.drugId.$dirty && drugDetachForm.drugId.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>格式不正确</label>
+                    <input type="text"
+                           class="form-control"
+                           name="drugId"
+                           ng-model="form.oldDrugId"
+                           ng-pattern="/^[1-9]\d*$/"
+                           placeholder="药品id"
+                           required
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': drugDetachForm.oldCount.$invalid && drugDetachForm.oldCount.$dirty, 'has-success': drugDetachForm.oldCount.$valid && drugDetachForm.oldCount.$dirty}">
+                    <label>拆零药品数量</label>
+                    <label ng-if="drugDetachForm.oldCount.$dirty && drugDetachForm.oldCount.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>格式不正确</label>
+                    <input type="text"
+                           class="form-control"
+                           name="oldCount"
+                           ng-model="form.oldCount"
+                           ng-pattern="/^[1-9]\d*$/"
+                           placeholder="拆零药品数量"
+                           required
+                    >
+                </div>
+
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': drugDetachForm.newType.$invalid && drugDetachForm.newType.$dirty, 'has-success': drugDetachForm.newType.$valid && drugDetachForm.newType.$dirty}">
+                    <label>拆零后的药品单位</label>
+                    <label ng-if="drugDetachForm.newType.$dirty && drugDetachForm.newType.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>格式不正确</label>
+                    <input type="text"
+                           class="form-control"
+                           name="newType"
+                           ng-model="form.newType"
+                           placeholder="拆零后的药品单位"
+                           required
+                    >
+                </div>
+
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': drugDetachForm.newCount.$invalid && drugDetachForm.newCount.$dirty, 'has-success': drugDetachForm.newCount.$valid && drugDetachForm.newCount.$dirty}">
+                    <label>拆零后的药品数量</label>
+                    <label ng-if="drugDetachForm.newCount.$dirty && drugDetachForm.newCount.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>格式不正确</label>
+                    <input type="text"
+                           class="form-control"
+                           name="newCount"
+                           ng-model="form.newCount"
+                           ng-pattern="/^[1-9]\d*$/"
+                           placeholder="拆零后的药品数量"
+                           required
+                    >
+                </div>
+
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': drugDetachForm.remark.$invalid && drugDetachForm.remark.$dirty, 'has-success': drugDetachForm.remark.$valid && drugDetachForm.remark.$dirty}">
+                    <label>备注</label>
+                    <label ng-if="drugDetachForm.remark.$dirty && drugDetachForm.remark.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="remark"
+                           ng-model="form.remark"
+                           placeholder="备注"
+                           required
+                    >
+                </div>
+
+
+
+            </div><!-- /.box-body -->
+
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">拆零</button>
+            </div>
+        </form>
+    </div>
+</section><!-- /.Left col -->

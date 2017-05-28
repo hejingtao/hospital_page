@@ -1,0 +1,104 @@
+
+<!-- Content Header (Page header) -->
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">体格诊断详情</h3>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        <form name="signDetailsForm" ng-submit="changeSignDetails(signDetailsForm.$valid)" novalidate>
+            <div class="box-body">
+
+                <div class="form-group">
+                    <label>是否修改分类</label>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="isChangeLevel"  ng-model="form.isChangeLevel" value="1">
+                            是
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="isChangeLevel"  ng-model="form.isChangeLevel" value="0">
+                            否
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="form-group" ng-if="form.isChangeLevel == 1">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="level"  ng-click="getLevel(1)" ng-model="form.level" value="1">
+                            一级
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="level"  ng-click="getLevel(1)" ng-model="form.level" value="2">
+                            二级
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="level" ng-model="form.level"  value="3">
+                            三级
+                        </label>
+                    </div>
+                </div>
+
+                <div ng-if="form.level == 2 || form.level == 3" class="form-group has-feedback" ng-class="{ 'has-error': addSignForm.firstLevelSignId.$invalid && addSignForm.firstLevelSignId.$dirty, 'has-success': addSignForm.firstLevelSignId.$valid && addSignForm.firstLevelSignId.$dirty}">
+                    <label>一级分类</label>
+                    <label ng-if="addSignForm.firstLevelSignId.$dirty && addSignForm.firstLevelSignId.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+
+                    <select class="form-control" name="firstLevelSignId" ng-change="getLevel(2,form.firstLevelSignId)" ng-model="form.firstLevelSignId" required>
+                        <option ng-repeat="firstLevelSign in firstLevelSignList"  name="firstLevelSignId"  value="{{firstLevelSign.signId}}">{{firstLevelSign.name}}</option>
+                    </select>
+                </div>
+
+                <div ng-if="form.level == 3" class="form-group has-feedback" ng-class="{ 'has-error': addSignForm.secondLevelSignId.$invalid && addSignForm.secondLevelSignId.$dirty, 'has-success': addSignForm.secondLevelSignId.$valid && addSignForm.secondLevelSignId.$dirty}">
+                    <label>二级分类</label>
+                    <label ng-if="addSignForm.secondLevelSignId.$dirty && addSignForm.secondLevelSignId.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <select class="form-control" name="secondLevelSignId" ng-model="form.secondLevelSignId" required>
+                        <option ng-repeat="secondLevelSign in secondLevelSignList" name="secondLevelSignId" value="{{secondLevelSign.signId}}">{{secondLevelSign.name}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group has-feedback">
+                    <label>上级体格诊断id</label>
+                    <input type="text"
+                           class="form-control"
+                           ng-model="signDetails.parentId"
+                           disabled
+                    >
+                </div>
+
+                <div class="form-group has-feedback">
+                    <label>上级体格诊断名称</label>
+                    <input type="text"
+                           class="form-control"
+                           ng-model="signDetails.parentName"
+                           disabled
+                    >
+                </div>
+
+                <div class="form-group has-feedback" ng-class="{ 'has-error': signDetailsForm.name.$invalid && signDetailsForm.name.$dirty, 'has-success': signDetailsForm.name.$valid && signDetailsForm.name.$dirty}">
+                    <label>名称</label>
+                    <label ng-if="signDetailsForm.name.$dirty && signDetailsForm.name.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>不允许为空</label>
+                    <input type="text"
+                           class="form-control"
+                           name="name"
+                           ng-model="form.name"
+                           placeholder="名称"
+                           required
+                    >
+                </div>
+
+            </div><!-- /.box-body -->
+
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">修改</button>
+            </div>
+        </form>
+    </div>
+</section><!-- /.Left col -->

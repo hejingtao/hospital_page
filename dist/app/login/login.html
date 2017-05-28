@@ -1,0 +1,40 @@
+
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="../../index2.html"><b>湛江潜校</b></a>
+        </div><!-- /.login-logo -->
+        <div class="login-box-body">
+            <form name="loginForm" ng-submit="login(loginForm.$valid)" novalidate>
+            <p class="login-box-msg">请登陆以便进行操作</p>
+                <div class="form-group has-feedback" ng-class="{ 'has-error': loginForm.phone.$invalid && loginForm.phone.$dirty, 'has-success': loginForm.phone.$valid && loginForm.phone.$dirty}">
+                    <label ng-if="loginForm.phone.$dirty && loginForm.phone.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>手机号码格式错误</label>
+                    <input type="number"
+                           class="form-control"
+                           name="phone" ng-model="phone"
+                           ng-pattern="/^1[0-9]{10}$/"
+                           placeholder="手机号码"
+                           required
+                    >
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback" ng-class="{ 'has-error': loginForm.password.$invalid && loginForm.password.$dirty, 'has-success': loginForm.password.$valid && loginForm.password.$dirty}">
+                    <label ng-if="loginForm.password.$dirty && loginForm.password.$invalid && submitted" class="control-label"><i class="fa fa-times-circle-o"></i>密码长度需要大于或者等于八位</label>
+                    <input type="password"
+                           class="form-control"
+                           name="password"
+                           ng-model="password"
+                           ng-minlength="8"
+                           placeholder="密码"
+                           required>
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                    </div>
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
+                    </div>
+                </div>
+            </form>
+        </div><!-- /.login-box-body -->
+    </div><!-- /.login-box -->

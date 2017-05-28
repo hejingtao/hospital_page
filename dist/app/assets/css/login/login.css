@@ -1,0 +1,272 @@
+body {
+  height: 100%; }
+
+#login-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-image: url(/assets/images/login-background.jpg);
+  background-size: 100%;
+  background-position: bottom; }
+  #login-frame #login-area {
+    position: absolute;
+    width: 640px;
+    height: 380px;
+    top: 50%;
+    left: 50%;
+    margin-top: -190px;
+    margin-left: -320px;
+    background-color: rgba(255, 255, 255, 0.8); }
+    #login-frame #login-area .head {
+      width: 100%;
+      height: 60px;
+      line-height: 60px;
+      font-size: 20px;
+      background-color: white;
+      text-align: center;
+      color: #b8b8b8;
+      white-space: nowrap;
+      vertical-align: top; }
+      #login-frame #login-area .head span {
+        border-top: 2px solid #f7f7f7;
+        border-bottom: 1px solid #e1e1e1;
+        display: inline-block;
+        width: 318px;
+        height: 100%;
+        background-color: #f7f7f7;
+        cursor: pointer; }
+      #login-frame #login-area .head .left {
+        border-left: 1px solid #e1e1e1;
+        border-right: 1px solid #f7f7f7; }
+      #login-frame #login-area .head .right {
+        border-left: 1px solid #f7f7f7;
+        border-right: 1px solid #e1e1e1; }
+      #login-frame #login-area .head .active {
+        border-top: 2px solid #0086d7;
+        border-bottom: 1px solid #f7f7f7;
+        background-color: white;
+        color: #838383; }
+      #login-frame #login-area .head .active.left {
+        border-left: 1px solid #e1e1e1;
+        border-right: 1px solid #e1e1e1; }
+      #login-frame #login-area .head .active.right {
+        border-right: 1px solid #e1e1e1;
+        border-left: 1px solid #e1e1e1; }
+    #login-frame #login-area .login-phone {
+      margin: 40px auto 0 auto;
+      width: 560px;
+      height: 50px; }
+      #login-frame #login-area .login-phone input {
+        padding-left: 20px;
+        width: 540px;
+        height: 50px;
+        border: 1px solid #e0e0e0;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px; }
+    #login-frame #login-area .login-password {
+      margin: 0px auto 0 auto;
+      width: 560px;
+      height: 50px; }
+      #login-frame #login-area .login-password input {
+        padding-left: 20px;
+        width: 540px;
+        height: 50px;
+        border: 1px solid #e0e0e0;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px; }
+    #login-frame #login-area .keep {
+      width: 560px;
+      height: 25px;
+      line-height: 25px;
+      margin: 15px auto 0 auto;
+      font-size: 14px;
+      text-align: right;
+      color: #b8b8b8; }
+      #login-frame #login-area .keep input {
+        width: 25px;
+        height: 25px;
+        vertical-align: middle; }
+    #login-frame #login-area .confirm {
+      width: 560px;
+      height: 50px;
+      line-height: 50px;
+      margin: 10px auto 0 auto;
+      background: #0083da;
+      text-align: center;
+      font-size: 20px;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer; }
+    #login-frame #login-area .confirm:hover {
+      background-color: #0091f2;
+      box-shadow: 0px 2px 5px rgba(0, 131, 218, 0.5); }
+    #login-frame #login-area .forget {
+      width: 60px;
+      height: 30px;
+      line-height: 30px;
+      margin: 20px 40px 0 auto;
+      text-align: right;
+      color: #b8b8b8;
+      font-size: 14px;
+      cursor: pointer; }
+
+.forget-head {
+  position: relative;
+  width: 100%;
+  height: 95px;
+  line-height: 95px;
+  text-align: center;
+  background-color: #0083da;
+  color: white;
+  font-size: 30px; }
+  .forget-head .arrow {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    margin-left: -15px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 15px 0 15px;
+    border-color: #0083da transparent transparent transparent; }
+
+.forget-step {
+  width: 620px;
+  height: 75px;
+  margin: 60px auto 70px auto; }
+  .forget-step .step {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 35px; }
+    .forget-step .step .top {
+      margin-top: 12px;
+      width: 200px;
+      height: 10px;
+      background-color: #e0e0e0; }
+    .forget-step .step .circle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: -17px;
+      width: 35px;
+      height: 35px;
+      font-size: 14px;
+      line-height: 35px;
+      text-align: center;
+      color: #b8b8b8;
+      border-radius: 50%;
+      background-color: #e0e0e0; }
+    .forget-step .step .message {
+      width: 200px;
+      height: 20px;
+      line-height: 20px;
+      margin-top: 35px;
+      text-align: center;
+      font-size: 16px;
+      color: #7e7e7e; }
+  .forget-step .active .top, .forget-step .active .circle {
+    background-color: #0083da;
+    color: white; }
+  .forget-step .active .message {
+    color: #798b9a; }
+  .forget-step .step1 .top {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px; }
+  .forget-step .step3 .top {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px; }
+
+.forget-line {
+  width: 700px;
+  height: 50px;
+  margin: 30px auto 30px auto; }
+  .forget-line .title {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    margin-right: 10px;
+    line-height: 50px;
+    text-align: right;
+    font-size: 14px;
+    color: #7e7e7e; }
+  .forget-line .middle {
+    display: inline-block;
+    width: 420px;
+    height: 50px; }
+    .forget-line .middle input {
+      width: 385px;
+      height: 50px;
+      padding-left: 15px;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      color: #7e7e7e; }
+    .forget-line .middle input:focus {
+      border: 1px solid #0083da; }
+    .forget-line .middle .forget-confirm {
+      width: 400px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      color: white;
+      background-color: #0083da;
+      border-radius: 10px;
+      cursor: pointer; }
+    .forget-line .middle .forget-confirm:hover {
+      background-color: #33b4fe;
+      box-shadow: 0px 2px 5px rgba(0, 131, 218, 0.5); }
+  .forget-line .button {
+    display: inline-block;
+    width: 120px;
+    height: 50px;
+    vertical-align: middle; }
+    .forget-line .button .code {
+      display: inline-block;
+      width: 105px;
+      height: 50px;
+      line-height: 50px;
+      vertical-align: middle;
+      text-align: center;
+      cursor: pointer;
+      color: #7e7e7e;
+      border: 1px solid #b8b8b8;
+      border-radius: 5px;
+      font-size: 14px; }
+    .forget-line .button .active {
+      background-color: #e0e0e0 !important;
+      cursor: wait; }
+
+.forget-success {
+  width: 600px;
+  height: 200px;
+  margin: 70px auto 0 auto;
+  background-color: #fafbff;
+  border: 1px solid #0083da;
+  border-radius: 10px; }
+  .forget-success .message {
+    margin: 30px auto 0 auto;
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 16px;
+    color: #6e6e6e; }
+    .forget-success .message span {
+      display: inline-block;
+      margin-right: 10px;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      color: white;
+      background-color: #0083da; }
+  .forget-success .tips {
+    width: 200px;
+    height: 30px;
+    margin: 30px auto 0 auto;
+    text-align: center;
+    color: #b8b8b8; }
+    .forget-success .tips .sec {
+      color: #798b9a; }
